@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="relative container mx-auto px-4 md:px-8 lg:px-16">
         <div className="mb-12">
           <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/97332b3f9436146c0963494278f5ae094f2b6012?width=1010"
+            src="/pixerve.jpg"
             alt="Logo"
             className="mx-auto h-16 md:h-20 lg:h-32 w-auto"
           />

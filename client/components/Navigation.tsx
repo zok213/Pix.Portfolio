@@ -7,7 +7,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between py-4 md:py-6">
           <Link to="/" className="flex-shrink-0">
             <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/f21e90a6112a346d3141f852f1759a75864d8960?width=286"
+              src="/pixerve.jpg"
               alt="Logo"
               className="h-8 md:h-10 w-auto"
             />
