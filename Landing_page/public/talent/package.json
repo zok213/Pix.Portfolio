@@ -1,0 +1,11 @@
+{
+    "name": "pixerse-talent-static",
+    "version": "1.0.0",
+    "description": "Static deployment for PiXerse Talent",
+    "scripts": {
+        "build": "echo 'Static site - no build required'"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
