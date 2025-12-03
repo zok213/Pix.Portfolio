@@ -1,6 +1,13 @@
 {
     "outputDirectory": "Landing_page/dist/spa",
     "trailingSlash": true,
+    "redirects": [
+        {
+            "source": "/",
+            "destination": "/talent",
+            "temporary": true
+        }
+    ],
     "rewrites": [
         {
             "source": "/talent",
