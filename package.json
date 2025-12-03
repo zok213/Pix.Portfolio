@@ -1,0 +1,10 @@
+{
+    "name": "pix-portfolio-root",
+    "private": true,
+    "scripts": {
+        "build": "cd Landing_page && npm install && npm run build"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}
