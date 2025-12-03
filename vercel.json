@@ -5,7 +5,7 @@
         {
             "source": "/",
             "destination": "/talent",
-            "temporary": true
+            "permanent": false
         }
     ],
     "rewrites": [
