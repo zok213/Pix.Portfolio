@@ -1,0 +1,13 @@
+{
+    "trailingSlash": true,
+    "rewrites": [
+        {
+            "source": "/talent",
+            "destination": "/talent/index.html"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}

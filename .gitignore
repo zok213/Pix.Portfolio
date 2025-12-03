@@ -25,3 +25,8 @@ dist-ssr
 
 .config/
 !.env
+
+*.github
+.vscode
+command   
+Content

@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiXerse - Báo Giá Dịch Vụ Executive Search | Game Development, Technology, AI, Blockchain & Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.8;
+            color: #000;
+            background: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 60px 80px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+        
+        .header {
+            border-bottom: 4px solid #000;
+            padding-bottom: 30px;
+            margin-bottom: 50px;
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+        }
+        
+        .lang-switcher {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        
+        .lang-btn {
+            background: #000;
+            color: #fff;
+            border: 2px solid #000;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .lang-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+        
+        .logo-container {
+            flex-shrink: 0;
+        }
+        
+        .logo-container img {
+            height: 80px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+        
+        @media print {
+            .logo-container img {
+                max-height: 80px;
+            }
+        }
+        
+        .header-content {
+            flex: 1;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            grid-column: 1 / -1;
+        }
+        
+        h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #333;
+        }
+        
+        h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 30px 0 20px 0;
+            padding: 15px;
+            background: #f5f5f5;
+            border-left: 5px solid #666;
+        }
+        
+        h4 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 25px 0 15px 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        ul {
+            margin: 15px 0 20px 30px;
+            font-size: 16px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 16px;
+        }
+        
+        th {
+            background: #333;
+            color: #fff;
+            padding: 18px;
+            text-align: left;
+            font-weight: normal;
+            font-size: 17px;
+        }
+        
+        td {
+            padding: 18px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+        
+        .requirement-box {
+            border: 2px solid #999;
+            padding: 30px;
+            margin: 30px 0;
+            background: #fafafa;
+            font-size: 16px;
+        }
+        
+        .feature-box {
+            border: 3px solid #666;
+            padding: 30px;
+            margin: 30px 0;
+            background: #f8f8f8;
+            font-size: 16px;
+        }
+        
+        .tech-note {
+            border-left: 5px solid #666;
+            padding: 20px;
+            margin: 30px 0;
+            background: #f5f5f5;
+            font-size: 15px;
+        }
+        
+        .algorithm-box {
+            border: 3px solid #000;
+            padding: 30px;
+            margin: 35px 0;
+            background: #f0f0f0;
+            font-size: 16px;
+        }
+        
+        .pod-section {
+            border: 2px solid #666;
+            margin: 30px 0;
+        }
+        
+        .pod-header {
+            background: #666;
+            color: white;
+            padding: 18px 30px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .pod-content {
+            padding: 30px;
+            font-size: 16px;
+        }
+        
+        strong {
+            font-weight: bold;
+        }
+        
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #004499;
+        }
+        
+        .highlight-box {
+            border: 3px solid #000;
+            padding: 30px;
+            margin: 35px 0;
+            background: #fff;
+            font-size: 16px;
+        }
+        
+        ol {
+            margin: 15px 0 20px 30px;
+            font-size: 16px;
+        }
+        
+        ol li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="lang-switcher">
+                <a href="index.html" class="lang-btn">English</a>
+            </div>
+            <div class="logo-container">
+                <img src="./Logo không đen@311x.png" alt="PiXerse Logo" id="main-logo" style="height: 80px; width: auto; display: block;">
+            </div>
+            <div class="header-content">
+                <h1>BÁO GIÁ DỊCH VỤ EXECUTIVE SEARCH</h1>
+                <p style="margin-top: 15px; color: #666; font-size: 18px;">
+                    Chuyên ngành: Game Development, Technology, AI, Blockchain & Design
+                </p>
+                <p style="margin-top: 15px; font-size: 16px;">
+                    <strong>Công ty:</strong> PiXerse<br>
+                    <strong>Ngành:</strong> Technology, Information and Media<br>
+                    <strong>Mô tả:</strong> Kết hợp creative media (PiX.stdio) và tech team (PiX.teq), được xây dựng để phục vụ các cộng đồng AI, Web3, Game và Robotics.<br>
+                    <strong>Có hiệu lực từ:</strong> Tháng 1 năm 2025<br>
+                    <strong>Liên hệ:</strong> Info@pixerse.com
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>GIỚI THIỆU</h2>
+            
+            <p>PiXerse kết hợp chuyên môn về creative media (<strong>PiX.stdio</strong>) và khả năng kỹ thuật (<strong>PiX.teq</strong>) để cung cấp dịch vụ <strong>Executive Search</strong> chuyên biệt cho các vị trí cấp cao trong các ngành <strong>Game Development, Technology, AI, Blockchain, và Design</strong>.</p>
+            
+            <p>Là một công ty được xây dựng để phục vụ các cộng đồng AI, Web3, Game và Robotics, chúng tôi hiểu rõ những thách thức độc đáo trong việc tuyển dụng ở các lĩnh vực chuyên biệt này. Chúng tôi không chỉ khớp CV—chúng tôi hiểu các yêu cầu kỹ thuật, sự phù hợp văn hóa, và động lực thị trường tạo nên một vị trí thành công.</p>
+        </div>
+
+        <div class="section">
+            <h2>1. CẤU TRÚC PHÍ DỊCH VỤ</h2>
+            
+            <p>Chúng tôi áp dụng <strong>Mô hình Định Giá Theo Tier</strong> dựa trên độ khó tuyển dụng và giá trị chiến lược của vị trí:</p>
+            
+            <h3>Bảng Phí Dịch Vụ</h3>
+            
+            <table>
+                <tr>
+                    <th>Tầng</th>
+                    <th>Mô tả</th>
+                    <th>Tỷ lệ phí (% Thu nhập Gross hàng năm)</th>
+                    <th>Vị trí mục tiêu</th>
+                    <th>Thời gian bảo hành</th>
+                </tr>
+                <tr>
+                    <td><strong>Tier 1</strong><br>(Cơ bản)</td>
+                    <td>Vị trí phổ biến với nguồn cung địa phương dồi dào</td>
+                    <td><strong>12% - 14%</strong></td>
+                    <td>• Admin, HR, Accounting<br>• Sales Rep, Telesales<br>• Fresher/Junior Dev<br>• Basic Tester</td>
+                    <td><strong>60 ngày</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Tier 2</strong><br>(Tiêu chuẩn)</td>
+                    <td>Vị trí chuyên biệt yêu cầu sàng lọc kỹ năng</td>
+                    <td><strong>14% - 16%</strong></td>
+                    <td>• 2D Artist, UI/UX Designer<br>• Mid-level Dev (Java, .NET, PHP)<br>• Mobile Developer<br>• Marketing Lead, Content Lead</td>
+                    <td><strong>60 ngày</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Tier 3</strong><br>(Cao cấp)</td>
+                    <td>Vị trí hiếm yêu cầu Executive Search chủ động</td>
+                    <td><strong>18% - 20%</strong></td>
+                    <td>• Game Designer, 3D Artist<br>• Unity/Unreal Senior Developer<br>• Tech Lead, Bridge SE (Japanese)<br>• DevOps Engineer<br>• BD Manager (B2B/Global)</td>
+                    <td><strong>90 ngày</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Tier 4</strong><br>(Đặc biệt)</td>
+                    <td>Vị trí cực kỳ hiếm, cấp độ senior</td>
+                    <td><strong>21% - 24%</strong></td>
+                    <td>• AI/ML Engineer<br>• Blockchain Developer<br>• Technical Artist<br>• Solution Architect<br>• C-Level (CTO, Art Director, Studio Head)</td>
+                    <td><strong>90 ngày</strong></td>
+                </tr>
+            </table>
+            
+            <h3>Phí Tối Thiểu</h3>
+            <ul>
+                <li><strong>Tier 1-2:</strong> 25,000,000 VND/vị trí</li>
+                <li><strong>Tier 3-4:</strong> 40,000,000 VND/vị trí</li>
+            </ul>
+            <p style="font-style: italic; margin-top: 10px;">Nếu phí tính theo phần trăm thấp hơn mức tối thiểu, sẽ áp dụng phí tối thiểu.</p>
+            
+            <h3>Phụ Phí Đặc Biệt</h3>
+            <ul>
+                <li><strong>Lương USD/Crypto:</strong> +2% - 3%</li>
+                <li><strong>Dự án Stealth Mode (Bảo mật cao):</strong> +2% - 3%</li>
+            </ul>
+            
+            <div class="feature-box" style="margin-top: 40px; border-color: #0066cc;">
+                <h3 style="background: #0066cc; color: white; margin: -20px -20px 20px -20px; padding: 15px 20px;">Tùy Chọn Định Giá Thay Thế: Phí Cố Định Một Lần</h3>
+                <p style="font-size: 17px; margin-bottom: 20px;"><strong>Chúng tôi cũng cung cấp tùy chọn phí một lần đơn giản dựa trên 2 tháng lương gross của ứng viên.</strong></p>
+                
+                <h4>Cách Thức Hoạt Động:</h4>
+                <ul>
+                    <li><strong>Tính Phí:</strong> 2 × Lương Gross hàng tháng (bao gồm lương cơ bản + phụ cấp cố định)</li>
+                    <li><strong>Thanh Toán:</strong> Thanh toán một lần khi ứng viên onboard thành công</li>
+                    <li><strong>Cùng Bảo Hành:</strong> Tất cả điều khoản bảo hành giữ nguyên như định giá theo phần trăm</li>
+                    <li><strong>Cùng Chất Lượng Dịch Vụ:</strong> Dịch vụ Executive Search đầy đủ với tất cả lợi ích giá trị gia tăng</li>
+                </ul>
+                
+                <h4 style="margin-top: 25px;">Khi Nào Nên Chọn Tùy Chọn Này:</h4>
+                <ul>
+                    <li>→ Ưa thích chi phí cố định, dự đoán được</li>
+                    <li>→ Dễ dàng lập ngân sách và kế hoạch tài chính</li>
+                    <li>→ Tính phí đơn giản hơn</li>
+                    <li>→ Thường tiết kiệm chi phí hơn cho các vị trí lương cao</li>
+                </ul>
+                
+                <h4 style="margin-top: 25px;">Ví Dụ So Sánh:</h4>
+                <table style="margin-top: 15px;">
+                    <tr>
+                        <th>Vị trí</th>
+                        <th>Lương hàng tháng</th>
+                        <th>Thu nhập hàng năm</th>
+                        <th>Phí phần trăm (18%)</th>
+                        <th>Phí 2 tháng</th>
+                        <th>Chênh lệch</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Game Designer</strong><br>(Tier 3 - Mid-Senior)</td>
+                        <td>35,000,000 VND</td>
+                        <td>491,000,000 VND</td>
+                        <td>88,380,000 VND</td>
+                        <td><strong>70,000,000 VND</strong></td>
+                        <td style="color: green;"><strong>Tiết kiệm 18,380,000 VND</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Senior Unity Dev</strong><br>(Tier 3 - 5+ năm)</td>
+                        <td>50,000,000 VND</td>
+                        <td>710,000,000 VND</td>
+                        <td>127,800,000 VND</td>
+                        <td><strong>100,000,000 VND</strong></td>
+                        <td style="color: green;"><strong>Tiết kiệm 27,800,000 VND</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>AI Engineer</strong><br>(Tier 4 - Senior)</td>
+                        <td>70,000,000 VND</td>
+                        <td>994,000,000 VND</td>
+                        <td>208,740,000 VND</td>
+                        <td><strong>140,000,000 VND</strong></td>
+                        <td style="color: green;"><strong>Tiết kiệm 68,740,000 VND</strong></td>
+                    </tr>
+                </table>
+                
+                <div class="tech-note" style="margin-top: 25px; background: #e8f4f8; border-left-color: #0066cc;">
+                    <p><strong>→ Mẹo:</strong> Tùy chọn 2 tháng lương thường tiết kiệm chi phí hơn cho các vị trí có lương hàng tháng trên 30,000,000 VND. Đối với các vị trí lương thấp hơn, mô hình tính theo phần trăm có thể thuận lợi hơn.</p>
+                    <p style="margin-top: 10px;"><strong>→ Tham Khảo Thị Trường:</strong> Tất cả con số lương dựa trên dữ liệu thị trường Việt Nam (2024-2025), và còn dựa trên các research, kinh nghiệm trong ngành của công ty chúng tôi. Lương có thể thay đổi theo địa điểm (Đà Nẵng thường thấp hơn 15-20% so với Hà Nội/HCMC) và quy mô công ty.</p>
+                </div>
+                
+                <p style="margin-top: 25px; font-size: 16px;"><strong>Lưu ý:</strong> Bạn có thể chọn một trong hai mô hình định giá khi ký hợp đồng. Cả hai tùy chọn đều bao gồm dịch vụ toàn diện và điều khoản bảo hành giống nhau.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. CƠ SỞ TÍNH PHÍ</h2>
+            
+            <h3>2.1. Thu Nhập Gross Hàng Năm</h3>
+            
+            <p>Phí dịch vụ được tính dựa trên <strong>Thu Nhập Gross Hàng Năm</strong> của ứng viên, bao gồm:</p>
+            
+            <div class="requirement-box">
+                <h4>→ Bao Gồm:</h4>
+                <ul>
+                    <li>12 tháng lương cơ bản</li>
+                    <li>Lương tháng 13 (nếu cam kết)</li>
+                    <li>Phụ cấp cố định:
+                        <ul>
+                            <li>Phụ cấp đi lại</li>
+                            <li>Phụ cấp ăn trưa</li>
+                            <li>Phụ cấp điện thoại</li>
+                            <li>Phụ cấp trách nhiệm</li>
+                            <li>Các phụ cấp khác được cam kết trong hợp đồng</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h4 style="margin-top: 20px;">— Không Bao Gồm:</h4>
+                <ul>
+                    <li>Thưởng hiệu suất không cố định</li>
+                    <li>Lương làm thêm giờ (OT)</li>
+                    <li>Phúc lợi không thể chuyển đổi thành tiền mặt (bảo hiểm, phụ cấp đặc biệt...)</li>
+                </ul>
+            </div>
+            
+            <h3>2.2. Ví Dụ Tính Phí</h3>
+            
+            <div class="highlight-box">
+                <h4>Ví Dụ 1: Game Designer (Tier 3)</h4>
+                <table>
+                    <tr>
+                        <th>Hạng mục</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                    <tr>
+                        <td>Lương cơ bản/tháng</td>
+                        <td>35,000,000 VND</td>
+                    </tr>
+                    <tr>
+                        <td>Lương tháng 13</td>
+                        <td>35,000,000 VND</td>
+                    </tr>
+                    <tr>
+                        <td>Phụ cấp/tháng</td>
+                        <td>3,000,000 VND</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lương gross hàng tháng</strong></td>
+                        <td><strong>35,000,000 + 3,000,000 = 38,000,000 VND</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tổng thu nhập hàng năm</strong></td>
+                        <td><strong>(35,000,000 × 12) + 35,000,000 + (3,000,000 × 12) = 491,000,000 VND</strong></td>
+                    </tr>
+                    <tr style="background: #f0f0f0;">
+                        <td colspan="2" style="text-align: center; font-weight: bold; padding: 15px;">So Sánh Tùy Chọn Định Giá</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tùy chọn A: Phần trăm (18%)</strong></td>
+                        <td><strong>491,000,000 × 18% = 88,380,000 VND</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tùy chọn B: 2 Tháng Lương</strong></td>
+                        <td><strong>38,000,000 × 2 = 76,000,000 VND</strong> <span style="color: green;">(Tiết kiệm 12,380,000 VND)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phí dịch vụ (chưa VAT)</strong></td>
+                        <td><strong>76,000,000 VND</strong> (nếu chọn Tùy chọn B)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phí dịch vụ (bao gồm VAT 10%)</strong></td>
+                        <td><strong>83,600,000 VND</strong></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="highlight-box">
+                <h4>Ví Dụ 2: Senior Unity Developer (Tier 3)</h4>
+                <table>
+                    <tr>
+                        <th>Hạng mục</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                    <tr>
+                        <td>Lương cơ bản/tháng</td>
+                        <td>50,000,000 VND</td>
+                    </tr>
+                    <tr>
+                        <td>Lương tháng 13</td>
+                        <td>50,000,000 VND</td>
+                    </tr>
+                    <tr>
+                        <td>Phụ cấp/tháng</td>
+                        <td>5,000,000 VND</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lương gross hàng tháng</strong></td>
+                        <td><strong>50,000,000 + 5,000,000 = 55,000,000 VND</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tổng thu nhập hàng năm</strong></td>
+                        <td><strong>(50,000,000 × 12) + 50,000,000 + (5,000,000 × 12) = 710,000,000 VND</strong></td>
+                    </tr>
+                    <tr style="background: #f0f0f0;">
+                        <td colspan="2" style="text-align: center; font-weight: bold; padding: 15px;">So Sánh Tùy Chọn Định Giá</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tùy chọn A: Phần trăm (18%)</strong></td>
+                        <td><strong>710,000,000 × 18% = 127,800,000 VND</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tùy chọn B: 2 Tháng Lương</strong></td>
+                        <td><strong>55,000,000 × 2 = 110,000,000 VND</strong> <span style="color: green;">(Tiết kiệm 17,800,000 VND)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phí dịch vụ (chưa VAT)</strong></td>
+                        <td><strong>110,000,000 VND</strong> (nếu chọn Tùy chọn B)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phí dịch vụ (bao gồm VAT 10%)</strong></td>
+                        <td><strong>121,000,000 VND</strong></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="highlight-box">
+                <h4>Ví Dụ 3: AI Engineer (Tier 4 - Cấp độ Senior)</h4>
+                <p style="font-style: italic; color: #666; margin-bottom: 15px;"><strong>Lưu ý:</strong> Con số lương dựa trên dữ liệu thị trường Việt Nam (2024-2025), và còn dựa trên các research, kinh nghiệm trong ngành của công ty chúng tôi. Lương có thể thay đổi theo địa điểm (Đà Nẵng thường thấp hơn 15-20% so với Hà Nội/HCMC) và cấp độ kinh nghiệm.</p>
+                <table>
+                    <tr>
+                        <th>Hạng mục</th>
+                        <th>Chi tiết</th>
+                    </tr>
+                    <tr>
+                        <td>Lương cơ bản/tháng</td>
+                        <td>70,000,000 VND</td>
+                    </tr>
+                    <tr>
+                        <td>Lương tháng 13</td>
+                        <td>70,000,000 VND</td>
+                    </tr>
+                    <tr>
+                        <td>Phụ cấp/tháng</td>
+                        <td>7,000,000 VND</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lương gross hàng tháng</strong></td>
+                        <td><strong>70,000,000 + 7,000,000 = 77,000,000 VND</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tổng thu nhập hàng năm</strong></td>
+                        <td><strong>(70,000,000 × 12) + 70,000,000 + (7,000,000 × 12) = 994,000,000 VND</strong></td>
+                    </tr>
+                    <tr style="background: #f0f0f0;">
+                        <td colspan="2" style="text-align: center; font-weight: bold; padding: 15px;">So Sánh Tùy Chọn Định Giá</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tùy chọn A: Phần trăm (21%)</strong></td>
+                        <td><strong>994,000,000 × 21% = 208,740,000 VND</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tùy chọn B: 2 Tháng Lương</strong></td>
+                        <td><strong>77,000,000 × 2 = 154,000,000 VND</strong> <span style="color: green;">(Tiết kiệm 54,740,000 VND)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phí dịch vụ (chưa VAT)</strong></td>
+                        <td><strong>154,000,000 VND</strong> (nếu chọn Tùy chọn B)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phí dịch vụ (bao gồm VAT 10%)</strong></td>
+                        <td><strong>169,400,000 VND</strong></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. QUY TRÌNH LÀM VIỆC</h2>
+            
+            <h3>Giai Đoạn 1: Briefing & Phân Tích (Tuần 1)</h3>
+            <div class="requirement-box">
+                <ul>
+                    <li>→ Cuộc gọi Briefing với Hiring Manager/Decision Maker</li>
+                    <li>→ Phân tích JD và yêu cầu cụ thể</li>
+                    <li>→ Nghiên cứu thị trường và phân tích đối thủ</li>
+                    <li>→ Tư vấn điều chỉnh JD/lương (nếu cần)</li>
+                    <li>→ Ký hợp đồng dịch vụ</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Deliverable:</strong> JD đã được phê duyệt, hợp đồng đã ký</p>
+            </div>
+            
+            <h3>Giai Đoạn 2: Sourcing & Outreach (Tuần 2-5)</h3>
+            <div class="requirement-box">
+                <ul>
+                    <li>→ Tìm kiếm ứng viên tiềm năng:
+                        <ul>
+                            <li>LinkedIn, GitHub, ArtStation (cho Design)</li>
+                            <li>Mạng lưới ứng viên nội bộ</li>
+                            <li>Executive Search chủ động tại các công ty đối thủ</li>
+                        </ul>
+                    </li>
+                    <li>→ Outreach và sàng lọc sơ bộ</li>
+                    <li>→ Phỏng vấn sâu:
+                        <ul>
+                            <li>Đánh giá kỹ năng kỹ thuật</li>
+                            <li>Đánh giá Cultural Fit</li>
+                            <li>Xem xét Portfolio/GitHub (nếu có)</li>
+                        </ul>
+                    </li>
+                    <li>→ Reference Check (nếu cần)</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Deliverable:</strong> Shortlist 3-5 ứng viên phù hợp kèm Candidate Report chi tiết</p>
+            </div>
+            
+            <h3>Giai Đoạn 3: Trình Bày & Điều Phối (Tuần 6-7)</h3>
+            <div class="requirement-box">
+                <ul>
+                    <li>→ Gửi Shortlist cho khách hàng</li>
+                    <li>→ Điều phối lịch phỏng vấn</li>
+                    <li>→ Briefing ứng viên và khách hàng trước phỏng vấn</li>
+                    <li>→ Thu thập Feedback sau mỗi vòng phỏng vấn</li>
+                    <li>→ Điều chỉnh và tìm thêm ứng viên (nếu cần)</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Deliverable:</strong> Feedback sau mỗi vòng phỏng vấn</p>
+            </div>
+            
+            <h3>Giai Đoạn 4: Đàm Phán & Kết Thúc Thỏa Thuận (Tuần 8-9)</h3>
+            <div class="requirement-box">
+                <ul>
+                    <li>→ Hỗ trợ đàm phán Offer (lương, phúc lợi)</li>
+                    <li>→ Xử lý Counter-offer từ công ty hiện tại</li>
+                    <li>→ Hỗ trợ quy trình Resignation</li>
+                    <li>→ Tư vấn Relocation (nếu cần)</li>
+                    <li>→ Chuẩn bị Onboarding</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Deliverable:</strong> Ứng viên đã chấp nhận Offer và sẵn sàng Onboard</p>
+            </div>
+            
+            <h3>Giai Đoạn 5: Onboarding & Bảo Hành (Tuần 10-18)</h3>
+            <div class="requirement-box">
+                <ul>
+                    <li>→ Hỗ trợ tích hợp trong tuần đầu tiên</li>
+                    <li>→ Check-in định kỳ:
+                        <ul>
+                            <li>Tuần 1, 2, 4, 8 (và tuần 12 nếu Tier 3-4)</li>
+                        </ul>
+                    </li>
+                    <li>→ Giải quyết vấn đề sớm (nếu có)</li>
+                    <li>→ Đảm bảo ứng viên thành công trong vai trò mới</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Deliverable:</strong> Ứng viên đã vượt qua Probation và tích hợp tốt</p>
+            </div>
+            
+            <h3>Thời Gian Tổng Thể</h3>
+            <table>
+                <tr>
+                    <th>Tầng Vị Trí</th>
+                    <th>Thời Gian Dự Kiến</th>
+                </tr>
+                <tr>
+                    <td><strong>Tier 1-2</strong></td>
+                    <td>4-6 tuần</td>
+                </tr>
+                <tr>
+                    <td><strong>Tier 3</strong></td>
+                    <td>6-8 tuần</td>
+                </tr>
+                <tr>
+                    <td><strong>Tier 4</strong></td>
+                    <td>8-12 tuần</td>
+                </tr>
+            </table>
+            <p style="font-style: italic; margin-top: 10px;">Thời gian có thể thay đổi tùy thuộc vào độ khó của vị trí và tốc độ phản hồi của khách hàng.</p>
+        </div>
+
+        <div class="section">
+            <h2>4. ĐIỀU KHOẢN & ĐIỀU KIỆN</h2>
+            
+            <h3>4.1. Thanh Toán</h3>
+            <div class="requirement-box">
+                <ul>
+                    <li><strong>Invoice Date:</strong> Ngày ứng viên chính thức bắt đầu làm việc (Onboarding Date)</li>
+                    <li><strong>Payment Terms:</strong> <strong>15 - 30 ngày</strong> từ Invoice Date</li>
+                    <li><strong>Payment Method:</strong> Bank transfer</li>
+                    <li><strong>Tax:</strong> Phí trên chưa bao gồm VAT (10%)</li>
+                </ul>
+            </div>
+            
+            <h3>4.2. Chính Sách Bảo Hành</h3>
+            <p>Chúng tôi đảm bảo <strong>"1-for-1 Replacement (Free of Charge)"</strong> nếu ứng viên Resignation hoặc bị chấm dứt hợp đồng do vấn đề Performance trong thời gian Warranty:</p>
+            
+            <table>
+                <tr>
+                    <th>Tier</th>
+                    <th>Warranty Period</th>
+                </tr>
+                <tr>
+                    <td>Tier 1-2</td>
+                    <td><strong>60 ngày làm việc</strong></td>
+                </tr>
+                <tr>
+                    <td>Tier 3-4</td>
+                    <td><strong>90 ngày làm việc</strong></td>
+                </tr>
+            </table>
+            
+            <div class="requirement-box">
+                <h4>Warranty Process:</h4>
+                <ol>
+                    <li>Tìm kiếm Replacement Candidate trong vòng <strong>15-20 ngày làm việc</strong></li>
+                    <li>Nếu không tìm được Replacement: Hoàn lại <strong>50% - 70%</strong> phí dịch vụ đã nhận hoặc chuyển đổi thành Credit cho các vị trí tương lai (theo thỏa thuận)</li>
+                </ol>
+                
+                <h4 style="margin-top: 20px;">Warranty Exclusions:</h4>
+                <ul>
+                    <li>Công ty thay đổi JD, địa điểm làm việc, hoặc cấu trúc Compensation khác với Offer ban đầu</li>
+                    <li>Resignation do Restructuring (Layoff) hoặc các yếu tố khách quan không liên quan đến lỗi của ứng viên</li>
+                    <li>Ứng viên Resignation vì lý do cá nhân (Relocation không thành công, vấn đề gia đình...)</li>
+                </ul>
+            </div>
+            
+            <h3>4.3. Không Chọn Ứng Viên Nào</h3>
+            <div class="requirement-box">
+                <p>Nếu khách hàng không chọn ứng viên nào từ Shortlist ban đầu (3-5 ứng viên):</p>
+                <ul>
+                    <li>Chúng tôi sẽ cung cấp <strong>một Shortlist bổ sung</strong> gồm 3-5 ứng viên miễn phí</li>
+                    <li>Nếu khách hàng vẫn không chọn ứng viên nào sau Shortlist thứ hai, chúng tôi sẽ thảo luận các tùy chọn:
+                        <ul>
+                            <li>Tiếp tục tìm kiếm với yêu cầu đã điều chỉnh (JD/lương) - theo thỏa thuận</li>
+                            <li>Chuyển đổi phí dịch vụ thành Credit cho các vị trí tương lai (có hiệu lực 12 tháng)</li>
+                            <li>Hoàn lại một phần (tỷ lệ sẽ được thỏa thuận dựa trên công việc đã hoàn thành)</li>
+                        </ul>
+                    </li>
+                    <li>Nếu khách hàng thay đổi JD đáng kể sau khi nhận Shortlist, có thể cần hợp đồng mới</li>
+                </ul>
+            </div>
+            
+            <h3>4.4. Profile Retention</h3>
+            <p>Nếu công ty bạn không tuyển dụng ứng viên tại thời điểm giới thiệu nhưng sử dụng Profile đó để tuyển dụng trong vòng <strong>12 tháng</strong> sau đó, phí dịch vụ đầy đủ vẫn sẽ được áp dụng.</p>
+            
+            <h3>4.5. Quy Định Đặc Biệt</h3>
+            <div class="feature-box">
+                <h4>Đối Với Vị Trí Relocation (Tier 3 & 4):</h4>
+                <ul>
+                    <li>Chúng tôi cung cấp Consulting miễn phí cho ứng viên về: Tìm nhà ở, Cost of Living, trường học cho con (nếu có)</li>
+                    <li>Nếu ứng viên Resignation trong Warranty Period do lý do cá nhân liên quan đến "không thể thích ứng với môi trường sống", chúng tôi vẫn sẽ hỗ trợ tìm Replacement nhưng <strong>sẽ không áp dụng Refund</strong></li>
+                </ul>
+                
+                <h4 style="margin-top: 20px;">Đối Với Vị Trí Remote/Global:</h4>
+                <ul>
+                    <li>Hỗ trợ Consulting về cơ chế lương USD/Crypto</li>
+                    <li>Legal và Tax Support (nếu cần)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. DỊCH VỤ GIÁ TRỊ GIA TĂNG</h2>
+            
+            <p>Khi làm việc với chúng tôi, công ty bạn không chỉ nhận được dịch vụ tuyển dụng mà còn:</p>
+            
+            <div class="feature-box">
+                <h4>5.1. Thông Tin Thị Trường</h4>
+                <ul>
+                    <li><strong>Báo Cáo Thị Trường:</strong> Mức lương cập nhật, xu hướng tuyển dụng trong ngành</li>
+                    <li><strong>Benchmarking:</strong> So sánh với đối thủ</li>
+                    <li><strong>Strategic Consulting:</strong> Đề xuất điều chỉnh JD và lương để thu hút nhân tài tốt hơn</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>5.2. Chất Lượng Ứng Viên</h4>
+                <ul>
+                    <li><strong>Technical Screening:</strong> Đánh giá kỹ năng sâu, không chỉ dựa trên CV</li>
+                    <li><strong>Cultural Fit:</strong> Đảm bảo ứng viên phù hợp với văn hóa công ty</li>
+                    <li><strong>Candidate Report:</strong> Báo cáo chi tiết về từng ứng viên, cho phép ra quyết định nhanh chóng</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>5.3. Tiếp Cận Thị Trường Ẩn</h4>
+                <ul>
+                    <li><strong>Passive Candidates:</strong> Tiếp cận 80% nhân tài hàng đầu không tích cực tìm việc</li>
+                    <li><strong>Deep Network:</strong> Mạng lưới ứng viên trong các ngành Game, Tech, AI, Blockchain</li>
+                    <li><strong>Direct Hunt:</strong> Tìm kiếm chủ động thay vì chờ đợi ứng viên ứng tuyển</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>5.4. Hỗ Trợ Toàn Diện</h4>
+                <ul>
+                    <li><strong>Salary Negotiation:</strong> Trung gian đàm phán để đạt được win-win</li>
+                    <li><strong>Resignation Support:</strong> Hỗ trợ quy trình Resignation suôn sẻ của ứng viên</li>
+                    <li><strong>Onboarding:</strong> Hỗ trợ tích hợp trong những tuần đầu</li>
+                    <li><strong>Relocation Service:</strong> Tư vấn Relocation (nếu có)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>6. CAM KẾT DỊCH VỤ</h2>
+            
+            <div class="requirement-box">
+                <p>Chúng tôi cam kết:</p>
+                <ul>
+                    <li>→ <strong>Quality:</strong> Chỉ trình bày ứng viên đã được đánh giá kỹ lưỡng và đáp ứng yêu cầu</li>
+                    <li>→ <strong>Speed:</strong> Phản hồi trong vòng 48 giờ, gửi Shortlist trong vòng 4-8 tuần (tùy theo Tier)</li>
+                    <li>→ <strong>Transparency:</strong> Báo cáo chi tiết về từng ứng viên và quy trình tuyển dụng</li>
+                    <li>→ <strong>Support:</strong> Partnership từ đầu đến cuối, bao gồm cả sau Onboarding</li>
+                    <li>→ <strong>Warranty:</strong> Free Replacement nếu ứng viên không phù hợp trong Warranty Period</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>7. CÁC NGÀNH CHUYÊN BIỆT</h2>
+            
+            <div class="feature-box">
+                <h4>Game Development & Design</h4>
+                <ul>
+                    <li>Game Designer (System, Level, Economy)</li>
+                    <li>Game Artist (2D, 3D, Concept, Technical Artist)</li>
+                    <li>Game Developer (Unity, Unreal Engine)</li>
+                    <li>Game Producer, Project Manager</li>
+                    <li>QA/QC Game</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>Technology</h4>
+                <ul>
+                    <li>Software Engineer (Java, .NET, PHP, Python)</li>
+                    <li>Mobile Developer (iOS, Android, Flutter, React Native)</li>
+                    <li>Frontend/Backend Developer</li>
+                    <li>Full-stack Developer</li>
+                    <li>DevOps Engineer</li>
+                    <li>Tech Lead, Solution Architect</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>AI & Machine Learning</h4>
+                <ul>
+                    <li>AI/ML Engineer</li>
+                    <li>Data Scientist</li>
+                    <li>Computer Vision Engineer</li>
+                    <li>NLP Engineer</li>
+                    <li>MLOps Engineer</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>Blockchain & Web3</h4>
+                <ul>
+                    <li>Blockchain Developer (Solidity, Rust)</li>
+                    <li>Smart Contract Developer</li>
+                    <li>Web3 Frontend Developer</li>
+                    <li>DeFi Developer</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>Business & Marketing</h4>
+                <ul>
+                    <li>Business Development Manager</li>
+                    <li>Sales Manager, Sales Engineer</li>
+                    <li>Marketing Manager, Digital Marketing</li>
+                    <li>User Acquisition Manager</li>
+                    <li>Community Manager (Web2/Web3)</li>
+                </ul>
+            </div>
+            
+            <div class="feature-box">
+                <h4>Design</h4>
+                <ul>
+                    <li>UI/UX Designer</li>
+                    <li>Product Designer</li>
+                    <li>Graphic Designer</li>
+                    <li>Art Director</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>8. LIÊN HỆ & TƯ VẤN</h2>
+            
+            <p>Để được tư vấn chi tiết về dịch vụ của chúng tôi và nhận báo giá cụ thể cho vị trí của bạn, vui lòng liên hệ:</p>
+            
+            <div class="requirement-box">
+                <p><strong>Công ty:</strong> PiXerse</p>
+                <p><strong>Ngành:</strong> Technology, Information and Media</p>
+                <p><strong>Quy mô công ty:</strong> 10~25 nhân viên</p>
+                <p><strong>Người liên hệ:</strong> Giang Esley</p>
+                <p><strong>Chức danh:</strong> Founder of PiXerse</p>
+                <p><strong>Email:</strong> Info@pixerse.com</p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/giangesley/" target="_blank">linkedin.com/in/giangesley</a></p>
+                <p><strong>Company LinkedIn:</strong> <a href="https://www.linkedin.com/company/pixerse" target="_blank">linkedin.com/company/pixerse</a></p>
+                <p><strong>Địa điểm:</strong> Đà Nẵng, Việt Nam</p>
+                <p><strong>Về chúng tôi:</strong> Kết hợp creative media (PiX.stdio) và tech team (PiX.teq), được xây dựng để phục vụ các cộng đồng AI, Web3, Game và Robotics.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>9. TẠI SAO CHỌN PIXERSE?</h2>
+            
+            <div class="requirement-box" style="background: #f8f9fa; border-color: #0066cc;">
+                <ul style="font-size: 17px;">
+                    <li style="margin: 15px 0;"><strong>Người Trong Ngành:</strong> Chúng tôi không chỉ là nhà tuyển dụng—chúng tôi là một phần của các cộng đồng Game, Tech, AI và Blockchain. Đội ngũ của chúng tôi hiểu các sắc thái kỹ thuật, từ Unity shaders đến smart contracts, vì chúng tôi làm việc trong các lĩnh vực này.</li>
+                    <li style="margin: 15px 0;"><strong>Góc Nhìn Creative + Tech:</strong> Sự kết hợp độc đáo của PiX.stdio (creative media) và PiX.teq (tech solutions) có nghĩa là chúng tôi hiểu cả khía cạnh nghệ thuật và kỹ thuật của phát triển game và thiết kế.</li>
+                    <li style="margin: 15px 0;"><strong>Tiếp Cận Thị Trường Ẩn:</strong> Chúng tôi khai thác 80% nhân tài hàng đầu không tích cực tìm việc—thông qua mạng lưới của chúng tôi trong các cộng đồng AI, Web3, Game và Robotics.</li>
+                    <li style="margin: 15px 0;"><strong>Technical Assessment:</strong> Chúng tôi thực sự có thể đánh giá Portfolio, GitHub repos và kỹ năng kỹ thuật—không chỉ khớp từ khóa trên CV.</li>
+                    <li style="margin: 15px 0;"><strong>Hiểu Biết Thị Trường Đà Nẵng:</strong> Đặt trụ sở tại Đà Nẵng, chúng tôi hiểu động lực thị trường địa phương, kỳ vọng lương, và những thách thức độc đáo của việc tuyển dụng ở miền Trung Việt Nam.</li>
+                    <li style="margin: 15px 0;"><strong>Thân Thiện Với Startup:</strong> Là một startup, chúng tôi hiểu nhu cầu và ràng buộc của các công ty đang phát triển. Chúng tôi cung cấp giá cả cạnh tranh và điều khoản linh hoạt.</li>
+                    <li style="margin: 15px 0;"><strong>Comprehensive Support:</strong> Từ Sourcing đến Onboarding, chúng tôi đồng hành cùng bạn mọi bước đường, bao gồm hỗ trợ Relocation cho ứng viên chuyển đến Đà Nẵng.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>10. CÁC BƯỚC TIẾP THEO</h2>
+            
+            <div class="requirement-box">
+                <p>Để bắt đầu hợp tác:</p>
+                <ol>
+                    <li><strong>Liên hệ với chúng tôi</strong> để thảo luận nhu cầu tuyển dụng của bạn</li>
+                    <li><strong>Briefing Call</strong> (30-45 phút) để hiểu yêu cầu</li>
+                    <li><strong>Nhận báo giá cụ thể</strong> cho vị trí của bạn</li>
+                    <li><strong>Ký hợp đồng</strong> và bắt đầu quy trình tuyển dụng</li>
+                </ol>
+                <p style="margin-top: 20px;"><strong>Chúng tôi sẵn sàng giúp bạn tìm nhân tài phù hợp nhất!</strong></p>
+            </div>
+        </div>
+
+        <div style="margin-top: 60px; padding-top: 20px; border-top: 2px solid #333; display: flex; align-items: flex-start; gap: 30px;">
+            <div class="logo-container" style="flex-shrink: 0;">
+                <img src="./Logo không đen@311x.png" alt="PiXerse Logo" style="height: 60px; width: auto; display: block;">
+            </div>
+            <div style="flex: 1;">
+                <p><strong>Trân trọng,</strong></p>
+                <p style="margin-top: 10px;"><strong>PiXerse</strong></p>
+                <p><strong>Giang Esley - Founder</strong></p>
+                <p style="margin-top: 15px; font-size: 16px;">
+                    <strong>Email:</strong> Info@pixerse.com<br>
+                    <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/giangesley/" target="_blank">linkedin.com/in/giangesley</a><br>
+                    <strong>Company LinkedIn:</strong> <a href="https://www.linkedin.com/company/pixerse" target="_blank">linkedin.com/company/pixerse</a>
+                </p>
+                <p style="margin-top: 30px; font-style: italic; font-size: 15px; color: #666;">
+                    Đây chỉ là báo giá cơ bản các dịch vụ, không phải báo giá cụ thể. Báo giá cụ thể sẽ được quyết định dựa trên nhiều yếu tố khác như thời hạn tuyển, đặc thù tuyển, điều kiện thị trường và các nhu cầu cụ thể khác của dự án của bạn.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
