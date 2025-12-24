@@ -376,7 +376,7 @@ function InteractiveTeamSection({
               <img
                 src={activeMember.image}
                 alt={activeMember.name}
-                className="relative z-10 w-auto h-full object-contain drop-shadow-2xl"
+                className="relative z-10 h-full max-w-[90%] object-contain object-bottom drop-shadow-2xl"
                 style={{ transform: 'none' }}
               />
             </motion.div>
