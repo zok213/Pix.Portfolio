@@ -1,6 +1,6 @@
 import { colors, typography } from '../../styles/design-tokens';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Types for Team Members
 interface TeamMember {
@@ -307,6 +307,122 @@ function InteractiveTeamSection({
   const [activeMemberId, setActiveMemberId] = useState(members[0].id);
   const activeMember = members.find(m => m.id === activeMemberId) || members[0];
 
+  const autoRotateRef = useRef<NodeJS.Timeout | null>(null);
+  const mobileListRef = useRef<HTMLDivElement>(null);
+  const interactionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const isInteractingRef = useRef(false);
+
+  // Constants for Carousel
+  const ITEM_WIDTH = 260;
+  const GAP = 16;
+  const CARD_TOTAL_WIDTH = ITEM_WIDTH + GAP;
+  const SET_SIZE = members.length;
+  const SINGLE_SET_WIDTH = SET_SIZE * CARD_TOTAL_WIDTH;
+
+  // Triple the list for infinite loop: [Set 0 (Buffer)] [Set 1 (Main)] [Set 2 (Buffer)]
+  const extendedMembers = [...members, ...members, ...members];
+
+  // Initialize Scroll to Middle Set
+  useEffect(() => {
+    if (mobileListRef.current) {
+      // Start at the beginning of the middle set (Set 1)
+      // Index = SET_SIZE
+      const initialScroll = SET_SIZE * CARD_TOTAL_WIDTH;
+      mobileListRef.current.scrollLeft = initialScroll;
+    }
+  }, [members, SET_SIZE, CARD_TOTAL_WIDTH]);
+
+  // Start/Resume Auto Rotation
+  const startAutoRotation = () => {
+    if (autoRotateRef.current) clearInterval(autoRotateRef.current);
+
+    autoRotateRef.current = setInterval(() => {
+      if (mobileListRef.current && !isInteractingRef.current) {
+        const currentScroll = mobileListRef.current.scrollLeft;
+        const targetScroll = currentScroll + CARD_TOTAL_WIDTH;
+
+        mobileListRef.current.scrollTo({
+          left: targetScroll,
+          behavior: 'smooth'
+        });
+      }
+    }, 4000); // 4s regular interval
+  };
+
+  // Auto-rotation lifecycle
+  useEffect(() => {
+    startAutoRotation();
+    return () => {
+      if (autoRotateRef.current) clearInterval(autoRotateRef.current);
+      if (interactionTimeoutRef.current) clearTimeout(interactionTimeoutRef.current);
+    };
+  }, [members]);
+
+  // Handle User Interaction (Click/Scroll)
+  const handleInteraction = () => {
+    isInteractingRef.current = true;
+
+    // Clear existing resume timer
+    if (interactionTimeoutRef.current) clearTimeout(interactionTimeoutRef.current);
+
+    // Stop rotation immediately
+    if (autoRotateRef.current) clearInterval(autoRotateRef.current);
+
+    // Set timer to resume after 15 seconds
+    interactionTimeoutRef.current = setTimeout(() => {
+      isInteractingRef.current = false;
+      startAutoRotation();
+    }, 15000);
+  };
+
+  // Handle Scroll to update Active Member & Infinite Loop Logic
+  const handleMobileScroll = () => {
+    if (mobileListRef.current) {
+      const scrollLeft = mobileListRef.current.scrollLeft;
+
+      // 1. Infinite Loop Logic (Jump)
+      // If we are in Set 0 (Too far left), jump to Set 1
+      if (scrollLeft < SINGLE_SET_WIDTH / 2) {
+        // Jump forward by one set
+        mobileListRef.current.scrollLeft += SINGLE_SET_WIDTH;
+      }
+      // If we are in Set 2 (Too far right), jump to Set 1
+      else if (scrollLeft >= SINGLE_SET_WIDTH * 2.5) {
+        // Jump backward by one set
+        mobileListRef.current.scrollLeft -= SINGLE_SET_WIDTH;
+      }
+
+      // 2. Determine Active Member based on center position
+      // Account for padding (half screen) if needed, but relative scroll is easier
+      // Logic: Index in the extended list
+      const centerIndex = Math.round(mobileListRef.current.scrollLeft / CARD_TOTAL_WIDTH);
+      // Map to original member index (modulo)
+      const memberIndex = centerIndex % SET_SIZE;
+
+      if (members[memberIndex] && members[memberIndex].id !== activeMemberId) {
+        setActiveMemberId(members[memberIndex].id);
+      }
+    }
+  };
+
+  // Manual Select (Click on card)
+  const handleManualSelect = (id: string) => {
+    handleInteraction();
+    setActiveMemberId(id);
+
+    // Also scroll to that member (in the middle set to keep it safe)
+    // Find relative index in the main set
+    const index = members.findIndex(m => m.id === id);
+    if (index !== -1 && mobileListRef.current) {
+      // Target Set 1
+      const targetIndex = SET_SIZE + index;
+      mobileListRef.current.scrollTo({
+        left: targetIndex * CARD_TOTAL_WIDTH,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   // Colors for gradients
   const activeGradient = 'from-blue-600 to-purple-500'; // Matches Figma "Rectangle 1231"
 
@@ -444,7 +560,7 @@ function InteractiveTeamSection({
                     </motion.div>
                   )}
                   <button
-                    onClick={() => setActiveMemberId(member.id)}
+                    onClick={() => handleManualSelect(member.id)}
                     className={`
                               group relative w-full max-w-[384px] h-24 p-0 rounded-3xl transition-all duration-500 flex items-center gap-4 overflow-hidden
                               ${backgroundClass}
@@ -477,43 +593,74 @@ function InteractiveTeamSection({
       </div>
 
       {/* Mobile Layout (Stacked) */}
-      <div className="lg:hidden flex flex-col gap-12">
+      <div className="lg:hidden flex flex-col gap-8">
         {/* Image */}
-        <div className="flex justify-center">
-          <img
+        <div className="flex justify-center relative">
+          <div className="absolute inset-0 bg-blue-500/20 blur-[80px] rounded-full -z-10" />
+          <motion.img
+            key={activeMember.id}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
             src={activeMember.image}
             alt={activeMember.name}
-            className="w-full max-w-[300px] object-contain drop-shadow-2xl"
+            className="w-full max-w-[300px] h-[300px] object-contain drop-shadow-2xl"
           />
         </div>
 
         {/* Text */}
         <div className="text-center px-4">
-          <h4 className="text-4xl font-bold uppercase text-white mb-2" style={{ fontFamily: typography.fontFamily.ptSans }}>
-            {activeMember.name}
-          </h4>
-          <div className="w-24 h-px bg-white mx-auto mb-4" />
-          <p className="text-lg text-white font-normal mb-4">{activeMember.role}</p>
-          <p className="text-white/70 italic text-lg">{activeMember.quote}</p>
+          <motion.div
+            key={`text-${activeMember.id}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h4 className="text-4xl font-bold uppercase text-white mb-2" style={{ fontFamily: typography.fontFamily.ptSans }}>
+              {activeMember.name}
+            </h4>
+            <div className="w-24 h-px bg-white mx-auto mb-4" />
+            <p className="text-lg text-white font-normal mb-4">{activeMember.role}</p>
+            <p className="text-white/70 italic text-lg relative">
+              <span className="text-3xl text-purple-500 absolute -top-4 left-0 opacity-50">“</span>
+              {activeMember.quote}
+            </p>
+          </motion.div>
         </div>
 
-        {/* List */}
-        <div className="flex flex-col gap-3 px-4">
-          {members.map((member) => {
+        {/* List - Horizontal Scroll for Mobile */}
+        <div
+          ref={mobileListRef}
+          onScroll={(e) => {
+            handleInteraction();
+            handleMobileScroll();
+          }}
+          className="flex flex-row gap-4 px-0 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 mask-fade-right"
+          style={{ paddingLeft: 'calc(50% - 130px)', paddingRight: 'calc(50% - 130px)' }}
+        >
+          {extendedMembers.map((member, idx) => {
+            // Need unique key for duplicates
+            const uniqueKey = `${member.id}-${idx}`;
             const isActive = member.id === activeMemberId;
             return (
               <button
-                key={member.id}
-                onClick={() => setActiveMemberId(member.id)}
+                key={uniqueKey}
+                onClick={() => handleManualSelect(member.id)}
                 className={`
-                            w-full h-20 rounded-3xl flex items-center gap-4 text-left overflow-hidden
-                            ${isActive ? `bg-gradient-to-b ${activeGradient}` : 'bg-white/5 border border-blue-600'}
+                            w-[260px] flex-shrink-0 h-20 rounded-3xl flex items-center gap-4 text-left overflow-hidden snap-center transition-all duration-300
+                            ${isActive ? `bg-gradient-to-b ${activeGradient} scale-100 ring-2 ring-white/50` : 'bg-white/5 border border-white/10 scale-95 opacity-70'}
                         `}
               >
-                <div className={`w-20 h-full rounded-tl-3xl rounded-bl-3xl ${isActive ? 'bg-white' : 'bg-zinc-300'}`} />
-                <div className="pl-2">
-                  <div className="text-white font-medium text-xl">{member.name}</div>
-                  <div className="text-white/60 text-sm">{member.role}</div>
+                <div className={`w-20 h-full rounded-tl-3xl rounded-bl-3xl flex-shrink-0 overflow-hidden relative ${isActive ? 'bg-white' : 'bg-zinc-800'}`}>
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <div className="pr-4">
+                  <div className="text-white font-medium text-lg leading-tight mb-1">{member.name}</div>
+                  <div className="text-white/60 text-xs truncate max-w-[140px]">{member.role}</div>
                 </div>
               </button>
             );
