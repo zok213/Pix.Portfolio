@@ -85,21 +85,21 @@ export default function Communities() {
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex flex-col items-center justify-center gap-12 md:gap-16">
 
-          {/* PiX.Lab Card - Centered Top */}
+          {/* PiX.Lab Card - Staggered Left */}
           <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="w-full flex justify-center"
+            className="w-full flex justify-center md:justify-start"
           >
             <div
-              className="w-full max-w-[800px] relative group cursor-pointer"
+              className="w-full max-w-[500px] relative group cursor-pointer"
               onClick={() => window.open('https://t.me/pix_lab', '_blank')}
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-neutral-800/30 to-stone-400/30 rounded-[37px] border border-white/10 backdrop-blur-md" />
+              <div className="absolute inset-0 bg-gradient-to-b from-neutral-800/30 to-stone-400/30 rounded-[37px] border border-white/10 backdrop-blur-md transform group-hover:rotate-[-2deg] transition-transform duration-300" />
               <div className="absolute inset-0 bg-gradient-to-b from-gray-900/10 to-stone-400/10 rounded-[37px] backdrop-blur-md" />
-              <div className="relative h-32 md:h-40 rounded-[37px] border-2 border-blue-600 flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_0_30px_rgba(29,115,243,0.3)]">
+              <div className="relative h-32 md:h-40 rounded-[37px] border-2 border-blue-600 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(29,115,243,0.3)]">
                 <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span
                   className="text-white text-3xl md:text-5xl font-bold uppercase tracking-[4px] relative z-10"
@@ -117,7 +117,7 @@ export default function Communities() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="w-full flex items-center justify-center text-center"
+            className="w-full flex items-center justify-center text-center py-8 md:py-0 relative"
           >
             <div className="relative inline-block">
               <h2
@@ -150,46 +150,43 @@ export default function Communities() {
                   </defs>
                 </svg>
               </div>
+
+              {/* Visit Here Button - Positioned below title */}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-8 md:mt-12">
+                <button
+                  className="w-48 md:w-64 h-12 md:h-14 relative rounded-[34px] overflow-hidden group transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(151,71,255,0.5)]"
+                  onClick={() => window.open('https://t.me/pix_lab', '_blank')}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-500" />
+                  <span
+                    className="relative z-10 text-white text-lg md:text-xl font-normal"
+                    style={{ fontFamily: typography.fontFamily.inter }}
+                  >
+                    Visit here
+                  </span>
+                </button>
+              </div>
             </div>
           </motion.div>
 
-          {/* Visit Here Button - Centered */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="w-full flex justify-center"
-          >
-            <button
-              className="w-64 md:w-80 h-14 md:h-16 relative rounded-[34px] overflow-hidden group transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(151,71,255,0.5)]"
-              onClick={() => window.open('https://t.me/pix_lab', '_blank')}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-500" />
-              <span
-                className="relative z-10 text-white text-xl md:text-2xl font-normal"
-                style={{ fontFamily: typography.fontFamily.inter }}
-              >
-                Visit here
-              </span>
-            </button>
-          </motion.div>
+          {/* Spacer for button flow */}
+          <div className="h-24 md:h-16 w-full pointer-events-none" />
 
-          {/* DA NANG LOCALIST Card - Centered Bottom */}
+          {/* DA NANG LOCALIST Card - Staggered Right */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="w-full flex justify-center"
+            className="w-full flex justify-center md:justify-end"
           >
             <div
-              className="w-full max-w-[800px] relative group cursor-pointer"
+              className="w-full max-w-[500px] relative group cursor-pointer"
               onClick={() => window.open('https://www.facebook.com/DaNangLocalist', '_blank')}
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-neutral-800/30 to-stone-400/30 rounded-[37px] border border-white/10 backdrop-blur-md" />
+              <div className="absolute inset-0 bg-gradient-to-b from-neutral-800/30 to-stone-400/30 rounded-[37px] border border-white/10 backdrop-blur-md transform group-hover:rotate-[2deg] transition-transform duration-300" />
               <div className="absolute inset-0 bg-gradient-to-b from-gray-900/10 to-stone-400/10 rounded-[37px] backdrop-blur-md" />
-              <div className="relative h-32 md:h-40 rounded-[37px] border-2 border-purple-500 flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_0_30px_rgba(151,71,255,0.3)]">
+              <div className="relative h-32 md:h-40 rounded-[37px] border-2 border-purple-500 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(151,71,255,0.3)]">
                 <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span
                   className="text-white text-3xl md:text-5xl font-bold uppercase tracking-[4px] text-center px-4 relative z-10"
