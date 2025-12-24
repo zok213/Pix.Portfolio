@@ -75,9 +75,9 @@ export default function Services() {
         {/* Service Cards - Responsive Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
 
-          {/* Left Card - Information Technology */}
+          {/* Left Card - Digital IT Solution */}
           <ServiceCard
-            title="Information Technology"
+            title="DIGITAL IT SOLUTION"
             description="PiX.teq is a technology partner that builds innovative products and provides expert outsourcing services. Beside that, we also develop our own AI, Blockchain, and Game products while offering Security audits for clients. Fueling all our work is a dedicated R&D lab, where we pioneer advanced AI solutions for the field of Robotics."
             delay={0.2}
           />

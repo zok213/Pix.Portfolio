@@ -22,9 +22,9 @@ export default function Fields() {
 
       {/* Top Gradient Orb - Seamless transition from Communities (Split Gradient) */}
       <div
-        className="absolute -top-[300px] left-1/2 -translate-x-1/2 w-[1400px] h-[1000px] opacity-60 blur-[130px] z-20"
+        className="absolute -top-[300px] left-1/2 -translate-x-1/2 w-[1400px] h-[1000px] opacity-60 blur-[130px] z-0"
         style={{
-          background: 'radial-gradient(circle at 50% 50%, rgba(151, 71, 255, 0.6) 0%, rgba(88, 28, 135, 0.2) 70%)',
+          background: 'radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%)',
         }}
       />
 
@@ -49,15 +49,18 @@ export default function Fields() {
             items={[
               {
                 label: "IT/AI OUTSOURCING",
-                description: "Graphic & Brand Identity Design, Animation, Communication Channel Management (Discord, Facebook, Titkok, X, Luma,...), UX/UI Design."
+                description: "Graphic & Brand Identity Design, Animation, Communication Channel Management (Discord, Facebook, Titkok, X, Luma,...), UX/UI Design.",
+                image: "/images/planets/outsourcing-purple.png"
               },
               {
                 label: "GAME",
-                description: "Immersive game design and development, creating engaging experiences across various platforms."
+                description: "Immersive game design and development, creating engaging experiences across various platforms.",
+                image: "/images/planets/game-purple.png"
               },
               {
                 label: "EVENT",
-                description: "Comprehensive event management and production, ensuring memorable and impactful experiences."
+                description: "Comprehensive event management and production, ensuring memorable and impactful experiences.",
+                image: "/images/planets/event-purple.png"
               },
             ]}
             delay={0.2}
@@ -70,23 +73,28 @@ export default function Fields() {
             items={[
               {
                 label: "ENTERPRISE SOFTWARE & AI SOLUTIONS",
-                description: "Custom Web & Mobile App Development, AI-powered Chatbots & Virtual Assistants, Data Analytics & AI/ML Programming, Cloud Infrastructure & DevOps."
+                description: "Custom Web & Mobile App Development, AI-powered Chatbots & Virtual Assistants, Data Analytics & AI/ML Programming, Cloud Infrastructure & DevOps.",
+                image: "/images/planets/enterprise-blue.png"
               },
               {
                 label: "GAME",
-                description: "Advanced game mechanics and backend systems for scalable and robust gaming solutions."
+                description: "Advanced game mechanics and backend systems for scalable and robust gaming solutions.",
+                image: "/images/planets/game-blue.png"
               },
               {
                 label: "EVENT",
-                description: "Technical support and digital integration for events, enhancing engagement through technology."
+                description: "Technical support and digital integration for events, enhancing engagement through technology.",
+                image: "/images/planets/event-blue.png"
               },
               {
                 label: "BLOCKCHAIN",
-                description: "Secure and transparent blockchain solutions for decentralized applications and smart contracts."
+                description: "Secure and transparent blockchain solutions for decentralized applications and smart contracts.",
+                image: "/images/planets/blockchain-blue.png"
               },
               {
                 label: "IOT",
-                description: "Internet of Things solutions connecting devices and data for smarter operations."
+                description: "Internet of Things solutions connecting devices and data for smarter operations.",
+                image: "/images/planets/iot-blue.png"
               },
             ]}
             delay={0.4}
@@ -98,7 +106,7 @@ export default function Fields() {
   );
 }
 
-function FieldSection({ title, items, delay, color = 'purple' }: { title: string, items: { label: string, description: string }[], delay: number, color?: 'purple' | 'blue' }) {
+function FieldSection({ title, items, delay, color = 'purple' }: { title: string, items: { label: string, description: string, image: string }[], delay: number, color?: 'purple' | 'blue' }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -205,6 +213,13 @@ function FieldSection({ title, items, delay, color = 'purple' }: { title: string
                         background: 'radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%)',
                       }}
                     >
+                      {/* Planet Image */}
+                      <img
+                        src={item.image}
+                        alt={item.label}
+                        className="absolute inset-0 w-full h-full object-cover rounded-full"
+                      />
+
                       {/* Inner Reflection/Glow */}
                       <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
 

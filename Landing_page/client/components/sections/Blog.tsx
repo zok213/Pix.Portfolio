@@ -4,22 +4,22 @@ import { motion } from 'framer-motion';
 export default function Blog() {
   const posts = [
     {
-      title: 'TITLE TITLE TITLE TITLE TITLE TITLE TITLE',
-      date: 'mm/dd/yyyy',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac leo neque.',
+      title: 'FROM TRADITIONAL PLAGIARISM TO THE GHOST OF AI: WHEN HUMAN THOUGHT IS STOLEN',
+      date: '12/24/2025',
+      description: 'An in-depth look at how AI is reshaping the concept of authorship and the ethical challenges of synthesis vs. creation.',
       image: '/images/blog-image-1.png',
     },
     {
-      title: 'TITLE TITLE TITLE TITLE TITLE TITLE TITLE',
-      date: 'mm/dd/yyyy',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac leo neque.',
-      image: '/images/blog-image-1.png',
+      title: 'WEB3, AI, AND THE SOCIAL LAYER: BUILDING THE NEXT GENERATION OF THE INTERNET',
+      date: '12/20/2025',
+      description: 'Exploring the convergence of decentralized networks, artificial intelligence, and social interaction in the coming digital paradigm.',
+      image: '/images/n5kvy03rx9rmr0cv9xc833sz38.png',
     },
     {
-      title: 'TITLE TITLE TITLE TITLE TITLE TITLE TITLE',
-      date: 'mm/dd/yyyy',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac leo neque.',
-      image: '/images/blog-image-1.png',
+      title: 'SINGAPORE DIGITAL ASSET FIRM EXPANDS TO DA NANG: A NEW CHAPTER FOR VIETNAM\'S TECH HUB',
+      date: '12/15/2025',
+      description: 'Digital Treasures Center (DTC) expands operations to Da Nang, marking a significant milestone for Vietnam\'s growing role in the global tech ecosystem.',
+      image: '/images/processed-image.png',
     },
   ];
 

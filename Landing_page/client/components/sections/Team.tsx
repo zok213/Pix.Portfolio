@@ -18,44 +18,48 @@ const founders: TeamMember[] = [
     id: 'finn',
     name: 'FINN',
     handle: '@FINN',
-    role: 'Founder - Project Manager, Business Development, Researcher',
-    image: '/images/team-founder-1-448682.png',
-    quote: "A multidisciplinary company that blends creativity and technology to deliver impactful solutions. We aim to build connections between ideas and brand stories while crafting tools that empower communities."
+    role: 'Co-founder, PiX.labs Lead',
+    image: '/images/team/TEAM LEAD/@finn .png',
+    quote: "Pix.teq for technology products, the technology engine of PiXerse, dedicated to building practical, community-centered products. It focuses on developing tools that are accessible, intuitive, and purpose-driven solving everyday problems with meaningful digital experiences."
   },
   {
     id: 'giangesley',
     name: 'GIANGESLEY',
     handle: '@GIANGESLEY',
-    role: 'Founder - Project Manager, Business Development, Researcher',
-    image: '/images/team-founder-2-448682.png',
+    role: 'Founder, Head of PiX.teq',
+    image: '/images/team/TEAM LEAD/@giangesley.png',
     quote: "A multidisciplinary company that blends creativity and technology to deliver impactful solutions. We aim to build connections between ideas and brand stories while crafting tools that empower communities."
   },
   {
-    id: 'sown',
-    name: 'SOWN',
-    handle: '@SOWN',
-    role: 'Founder - Project Manager, Business Development, Researcher',
-    image: '/images/team-founder-3-448682.png',
-    quote: "A multidisciplinary company that blends creativity and technology to deliver impactful solutions. We aim to build connections between ideas and brand stories while crafting tools that empower communities."
+    id: 'v',
+    name: 'V',
+    handle: '@V',
+    role: 'Head of PiX.stdio',
+    image: '/images/team/Pix.stdio/@V.png',
+    quote: "\"Building communities is not just about connection, it’s about creating impact that lasts.\" My passion lies in blending creativity and technology to deliver meaningful experiences for both communities and businesses."
   },
 ];
 
-// Mock Data for PiX.TEQ (Technical)
+// PiX.TEQ Members
 const pixTeqMembers: TeamMember[] = [
-  { id: 'teq1', name: 'NAME', role: 'Technical', image: '/images/team-founder-center-56245d.png', quote: "Building robust backends and scalable architecture for the next generation of web applications." },
-  { id: 'teq2', name: 'NAME', role: 'Technical', image: '/images/team-founder-center-56245d.png', quote: "Exploring the frontiers of AI and machine learning to create smarter, more adaptive systems." },
-  { id: 'teq3', name: 'NAME', role: 'Technical', image: '/images/team-founder-center-56245d.png', quote: "Ensuring seamless integration between complex systems and user-friendly interfaces." },
-  { id: 'teq4', name: 'NAME', role: 'Technical', image: '/images/team-founder-center-56245d.png', quote: "Optimizing performance and security for high-traffic decentralized applications." },
-  { id: 'teq5', name: 'NAME', role: 'Technical', image: '/images/team-founder-center-56245d.png', quote: "Crafting efficient algorithms to solve complex computational problems." },
+  { id: 'blue', name: 'BLUE', role: 'Blockchain Lead', image: '/images/team/Pix.teq/@Blue.png', quote: "Success in business isn’t just about profits; it’s about perseverance, patience, and passion. It’s waking up early to chase dreams others can’t see, working late to solve problems no one else knows about, and betting on yourself when the odds feel impossible." },
+  { id: 'hary', name: 'HARY', role: 'Game Lead', image: '/images/team/Pix.teq/@hary.png', quote: "\"I play to feel. I build to be felt\" I’m not here just to make games. I’m here to craft emotions, spark imagination, and leave something that lingers after the screen goes dark. For me, every mechanic is a message, every level a story, and every player a collaborator. If a game doesn’t leave a mark, it wasn’t worth building." },
+  { id: 'zok', name: 'ZOK', role: 'AI Lead, PiX.labs member', image: '/images/team/Pix.teq/@zok.png', quote: "“I spend half my time building the future of intelligence, and the other half trying to center a `<div>`” For me, that's not just a joke—it's a core belief. The most brilliant AI is useless if it isn't delivered through a robust, user-friendly application. Our focus is on the complete journey: from architecting the model and engineering the data pipelines to deploying the full application. We don't just build algorithms; we ship intelligent experiences." },
+  { id: 'temaz', name: 'TEMAZ', role: 'PiX.teq member', image: '/images/team/Pix.teq/@temaz.png', quote: "An AI engineer passionate about AI and Blockchain, with experience in building MCP-RAG chatbots and contributing to several projects within the Solana ecosystem. I combine strong technical expertise with real-world project experience, while actively contributing to tech communities through talks, training sessions, and collaborative innovation." },
+  { id: 'nxc', name: 'NXC', role: 'PiX.teq member', image: '/images/team/Pix.teq/@nxc.png', quote: "AI enthusiast specializing in AI applications, research, backend development, and blockchain solutions. Experienced in building scalable systems, designing RAG pipelines, integrating LLMs, and deploying AI models across both software and hardware environments." },
+  { id: 'hollyn', name: 'HOLLYN DERISSE', role: 'PiX.teq member', image: '/images/team/Pix.teq/@hollyn.png', quote: "if you can see it in your mind, you can hold it in your hand" },
+  { id: 'hanne', name: 'HANNE', role: 'PiX.labs member', image: '/images/team/Pix.teq/@hanne.png', quote: "“Advancing artificial intelligence through science, not speculation.” I don’t chase trends, I chase understanding. My work in AI is grounded in research, experimentation, and the belief that true progress comes from curiosity backed by rigor. To me, intelligence isn’t something we imitate; it’s something we study, refine, and build responsibly. Every model, every experiment, every paper is a step toward clarity. I’m here to turn scientific insight into meaningful intelligence, to push AI forward with purpose, not noise." },
 ];
 
-// Mock Data for PiX.STDIO (Creative)
+// PiX.STDIO Members
 const pixStdioMembers: TeamMember[] = [
-  { id: 'stdio1', name: 'NAME', role: 'Technical', image: '/images/team-founder-bottom-7636d7.png', quote: "Designing immersive user experiences that delight and engage at every touchpoint." },
-  { id: 'stdio2', name: 'NAME', role: 'Technical', image: '/images/team-founder-bottom-7636d7.png', quote: "Bringing stories to life through motion graphics and dynamic visual storytelling." },
-  { id: 'stdio3', name: 'NAME', role: 'Technical', image: '/images/team-founder-bottom-7636d7.png', quote: "Pushing the boundaries of digital art to create unique and memorable brand assets." },
-  { id: 'stdio4', name: 'NAME', role: 'Technical', image: '/images/team-founder-bottom-7636d7.png', quote: "Crafting visual identities that resonate with audiences and stand the test of time." },
-  { id: 'stdio5', name: 'NAME', role: 'Technical', image: '/images/team-founder-bottom-7636d7.png', quote: "Blending aesthetics with functionality to create intuitive and beautiful interfaces." },
+  { id: 'tkp', name: 'TKP', role: 'Design Lead', image: '/images/team/Pix.stdio/@TKP.png', quote: "\"Creativity is the bridge between imagination and impact.\" I thrive on transforming ideas into engaging visuals that not only capture attention but also inspire action." },
+  { id: 'zan', name: 'ZAN', role: 'Content Lead', image: '/images/team/Pix.stdio/@zan.png', quote: "\"I help ideas take shape and find their voice. My role is to bring clarity and direction so others can move forward with confidence. What I create is built to inspire progress that truly lasts.\"" },
+  { id: 'mill', name: 'MILL', role: 'PiX.stdio member', image: '/images/team/Pix.stdio/@Mill.png', quote: "“Turning overload into overachieve.” As a multitasker, I bridge content, events, and media to build powerful brand presence. Blending creative vision with practical execution, this role creates meaningful connections and inspires audiences." },
+  { id: 'jay', name: 'JAY', role: 'PiX.stdio member', image: '/images/team/Pix.stdio/@jay.png', quote: "I approach marketing with patience. I try to keep things simple, so they may last. The work is meant to speak, not me." },
+  { id: 'orentb', name: 'ORENTB', role: 'PiX.stdio member', image: '/images/team/Pix.stdio/@orentB.png', quote: "“I dream in galaxies, I draw in fantasies” My art embraces fantasy and mystery, while my design focuses on minimalism. This allows me to create works that are both imaginative and functional. I believe in the power of colors to evoke emotion, yet I balance them with clarity and structure to deliver impactful visuals." },
+  { id: 'eirian', name: 'EIRIAN', role: 'PiX.stdio member', image: '/images/team/Pix.stdio/@eirian.png', quote: "I turn ideas and customer insights into engaging content and clear strategies. With a structured yet creative approach, I help teams communicate effectively and bring projects to life with impact and clarity." },
+  { id: 'nhiivuii', name: 'NHIIVUII', role: 'PiX.stdio member', image: '/images/team/Pix.stdio/@nhiivuii.png', quote: "I’m a graphic designer passionate about turning ideas into impactful visuals. Through my work, I aim to create designs that not only capture attention but also build meaningful connections between brands and their audiences." },
 ];
 
 export default function Team() {
@@ -124,7 +128,7 @@ export default function Team() {
             </h4>
             <nav className="space-y-2">
               {[
-                { label: 'Founder', href: '#founder' },
+                { label: 'Team Lead', href: '#founder' },
                 { label: 'PiX.Teq', href: '#pixteq' },
                 { label: 'PiX.Stdio', href: '#pixstdio' },
               ].map((item, idx) => (
@@ -185,74 +189,81 @@ export default function Team() {
               className="text-4xl md:text-5xl font-bold uppercase text-white tracking-[0.2em]"
               style={{ fontFamily: typography.fontFamily.ptSans }}
             >
-              FOUNDER
+              TEAM LEAD
             </h3>
           </div>
 
           {/* Responsive Grid for Founders */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20 items-start">
-            {founders.map((member, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: idx * 0.2 }}
-                viewport={{ once: true }}
-                className={`flex flex-col items-center ${idx === 1 ? 'md:mt-16' : ''}`}
-              >
-                {/* Image Container - Larger & Closer to Text */}
-                <div className="relative w-full max-w-none aspect-[3/4] mb-[-20px] group flex items-end justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
+            {founders.map((member, idx) => {
+              // Mobile Order: Giangesley (1) -> Finn (0) -> V (2)
+              let orderClass = 'order-3 md:order-none'; // Default (V)
+              if (idx === 0) orderClass = 'order-2 md:order-none'; // Finn
+              if (idx === 1) orderClass = 'order-1 md:order-none'; // Giangesley
 
-                  {/* Glow behind image (optional, kept for extra depth) */}
-                  <div className="absolute inset-0 bg-purple-500/20 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="relative z-10 w-full h-full object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-
-                {/* Handle */}
-                <h4
-                  className="relative z-20 text-3xl md:text-4xl font-bold uppercase text-white text-center mb-6 tracking-[4.8px]"
-                  style={{ fontFamily: typography.fontFamily.ptSans }}
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: idx * 0.2 }}
+                  viewport={{ once: true }}
+                  className={`flex flex-col items-center ${idx === 1 ? 'md:mt-24' : ''} ${orderClass}`}
                 >
-                  {member.handle}
-                </h4>
+                  {/* Image Container - Larger & Closer to Text */}
+                  <div className="relative w-full max-w-none aspect-[3/4] mb-[-20px] group flex items-end justify-center">
 
-                {/* Role Badge - Figma Style: Gradient + Border + Rounded-3xl */}
-                <div
-                  className="w-full max-w-[380px] rounded-3xl p-4 mb-6 shadow-lg border border-white/20"
-                  style={{
-                    background: 'linear-gradient(90deg, rgba(168, 85, 247, 0.5) 0%, rgba(37, 99, 235, 0.5) 100%)' // purple-500/50 to blue-600/50
-                  }}
-                >
-                  <p
-                    className="text-white text-2xl font-normal text-center leading-snug"
-                    style={{ fontFamily: typography.fontFamily.inter }}
-                  >
-                    {member.role}
-                  </p>
-                </div>
+                    {/* Glow behind image (optional, kept for extra depth) */}
+                    <div className="absolute inset-0 bg-purple-500/20 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
 
-                {/* Quote */}
-                <div className="relative max-w-[380px]">
-                  <span
-                    className="absolute -top-4 -left-2 text-6xl text-white/40 font-serif leading-none"
-                    style={{ fontFamily: typography.fontFamily.ptSerifCaption }}
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="relative z-10 w-full h-full object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+
+                  {/* Handle */}
+                  <h4
+                    className="relative z-20 text-3xl md:text-4xl font-bold uppercase text-white text-center mb-6 tracking-[4.8px]"
+                    style={{ fontFamily: typography.fontFamily.ptSans }}
                   >
-                    “
-                  </span>
-                  <p
-                    className="text-white/70 text-sm text-justify relative z-10 pl-6 leading-relaxed"
-                    style={{ fontFamily: typography.fontFamily.inter }}
+                    {member.handle}
+                  </h4>
+
+                  {/* Role Badge - Figma Style: Gradient + Border + Rounded-3xl */}
+                  <div
+                    className="w-full max-w-[380px] rounded-3xl p-4 mb-6 shadow-lg border border-white/20"
+                    style={{
+                      background: 'linear-gradient(90deg, rgba(168, 85, 247, 0.5) 0%, rgba(37, 99, 235, 0.5) 100%)' // purple-500/50 to blue-600/50
+                    }}
                   >
-                    {member.quote}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+                    <p
+                      className="text-white text-2xl font-normal text-center leading-snug"
+                      style={{ fontFamily: typography.fontFamily.inter }}
+                    >
+                      {member.role}
+                    </p>
+                  </div>
+
+                  {/* Quote */}
+                  <div className="relative max-w-[380px]">
+                    <span
+                      className="absolute -top-4 -left-2 text-6xl text-white/40 font-serif leading-none"
+                      style={{ fontFamily: typography.fontFamily.ptSerifCaption }}
+                    >
+                      “
+                    </span>
+                    <p
+                      className="text-white/70 text-sm text-justify relative z-10 pl-6 leading-relaxed"
+                      style={{ fontFamily: typography.fontFamily.inter }}
+                    >
+                      {member.quote}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -274,8 +285,8 @@ export default function Team() {
           gradientColor="purple"
         />
 
-      </div>
-    </section>
+      </div >
+    </section >
   );
 }
 
@@ -332,7 +343,7 @@ function InteractiveTeamSection({
 
           {/* Quote Box */}
           <div className="relative pl-6 border-l-4 border-white/20">
-            <span className="absolute -top-4 -left-2 text-6xl text-white/20 font-serif">“</span>
+            <span className="absolute -top-10 -left-12 text-8xl text-purple-500/50 font-serif">“</span>
             <AnimatePresence mode="wait">
               <motion.p
                 key={activeMember.id}
@@ -440,7 +451,13 @@ function InteractiveTeamSection({
                           `}
                   >
                     {/* Avatar/Icon Placeholder */}
-                    <div className={`w-28 h-24 rounded-tl-3xl rounded-bl-3xl ${isCenter ? 'bg-white' : 'bg-zinc-500'} flex-shrink-0 transition-colors duration-500`} />
+                    <div className={`w-28 h-24 rounded-tl-3xl rounded-bl-3xl overflow-hidden flex-shrink-0 relative`}>
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
 
                     <div className="flex flex-col items-start pl-4">
                       <span className="text-white font-medium text-2xl mb-1" style={{ fontFamily: typography.fontFamily.inter }}>
